@@ -53,3 +53,4 @@ async function findMyPotlucks(userId) {
 	return await db("potlucks")
 		.join("usersPotlucks", { "potlucks.id": "usersPotlucks.potluckId" })
 		.where("userId", Number(userId));
+}

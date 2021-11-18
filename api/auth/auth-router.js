@@ -2,7 +2,7 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const secrets = process.env.JWT_SECRET || "lambda";
-const Users = require("../data/models/usersModel.js");
+const Users = require("../models/usersModel.js");
 const router = require("express").Router();
 
 function generateToken(user) {

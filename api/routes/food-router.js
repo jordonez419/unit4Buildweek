@@ -1,7 +1,7 @@
-const restricted = require("../../auth/restricted-middleware.js");
-const Food = require("../../data/models/foodModel.js");
-const Potlucks = require("../../data/models/potlucksModel.js");
-const UsersPotlucks = require("../../data/models/usersPotlucksModel.js");
+const restricted = require("../auth/restricted-middleware.js");
+const Food = require("../models/foodModel.js");
+const Potlucks = require("../models/potlucksModel.js");
+const UsersPotlucks = require("../models/usersPotlucksModel.js");
 
 const router = require("express").Router();
 
