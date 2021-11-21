@@ -10,7 +10,7 @@ exports.up = async function (knex) {
 		tbl.increments("id");
 		tbl.string("eventName", 256).notNullable().unique();
 		tbl.string("eventDescription", 500).notNullable();
-		tbl.integer("locationAddress").notNullable();
+		tbl.string("locationAddress").notNullable();
 		tbl.string("locationStreet").notNullable();
 		tbl.string("locationUnit");
 		tbl.string("locationState").notNullable();
@@ -21,7 +21,13 @@ exports.up = async function (knex) {
 
 	await knex.schema.createTable("usersPotlucks", (tbl) => {
 		tbl.increments("id");
-		tbl.integer("userId").notNullable();
+		tbl.integer("userId")
+			.unsigned()
+			.notNullable()
+			.references("id")
+			.inTable("users")
+			.onUpdate("CASCADE")
+			.onDelete("CASCADE");
 		tbl.integer("role").notNullable();
 		tbl.integer("attendance");
 		tbl.integer("potluckId")
